@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>session</title>
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+  <body> 
+    <main>
+      
+      <% if (locals.user) { %>
+        <style>
+          body{
+            background-color: <%= locals.user.color %>;
+          }
+        </style>
+        <h1>Hola <%= locals.user.name %> </h1>
+        <p>Elegiste el color <%= locals.user.color %> </p>
+        <p>Tu email es: <%= locals.user.email %> </p>
+        <p>Y tu edad es: <%= locals.user.age = !undefined ? locals.user.age + " Años" : "No lo indicaste" %> </p>
+        <a href="/hola">Siguiente</a>
+        
+     <% } else { %> 
+      <div>
+      <form action="" method="POST">
+        <label for="name" >Ingrese su nombre</label>
+        <input name="name" type="text"  >
+        <span><%= locals.errors && errors.name ? errors.name.msg : null %> </span>
+        <label for="color">Elija su color favorito</label>
+        <input type="color" name="color" >
+        <span><%= locals.errors && errors.color ? errors.color.msg : null %> </span>
+        <label for="email" >Ingrese su email</label>
+        <input name="email" type="email" >
+        <span><%= locals.errors && errors.email ? errors.email.msg : null %> </span>
+        <label for="age" >Ingrese su edad</label>
+        <input name="age" type="number" >
+        <label for="recordar">Recordar color</label>
+        <input type="checkbox" name="recordar" > 
+        <input type="submit" placeholder="Enviar">
+        </form>
+      </div>
+      <% } %>
+    </main>
+  </body>
+</html>
+
