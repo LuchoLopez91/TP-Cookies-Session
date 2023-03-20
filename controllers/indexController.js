@@ -1,7 +1,4 @@
 const {validationResult} = require("express-validator");
-const fs = require("fs");
-const path = require("path");
-const data = JSON.parse(fs.readFileSync(path.join(__dirname, "../database/data"), "utf-8"));
 
 module.exports = {
     index: (req, res) => res.render("login"),
